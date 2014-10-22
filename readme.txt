@@ -1,1 +1,1 @@
-Java testing lessons.
+text
