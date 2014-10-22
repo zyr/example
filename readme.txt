@@ -1,1 +1,1 @@
-text
+Java testing lessons homework.
