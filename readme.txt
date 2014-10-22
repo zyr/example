@@ -1,1 +1,1 @@
-Java testing lessons homework.
+Java testing lessons.
