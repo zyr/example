@@ -10,6 +10,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -93,5 +94,40 @@ public class TestBase {
 	      acceptNextAlert = true;
 	    }
 	  }
+
+	protected void fillUserData(UserData userData) {
+		driver.findElement(By.name("firstname")).clear();
+	    driver.findElement(By.name("firstname")).sendKeys(userData.userName);
+	    driver.findElement(By.name("lastname")).clear();
+	    driver.findElement(By.name("lastname")).sendKeys(userData.userSndName);
+	    driver.findElement(By.name("address")).clear();
+	    driver.findElement(By.name("address")).sendKeys(userData.userMainAddress);
+	    driver.findElement(By.name("home")).clear();
+	    driver.findElement(By.name("home")).sendKeys(userData.userHomeTelephone);
+	    driver.findElement(By.name("mobile")).clear();
+	    driver.findElement(By.name("mobile")).sendKeys(userData.userMobilePhone);
+	    driver.findElement(By.name("work")).clear();
+	    driver.findElement(By.name("work")).sendKeys(userData.userWorkTelephone);
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys(userData.userEmail);
+	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(userData.userBrthDay);
+	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(userData.userBrthMonth);
+	    driver.findElement(By.name("byear")).clear();
+	    driver.findElement(By.name("byear")).sendKeys(userData.userBrthYear);
+	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(userData.userGroupName);
+	    driver.findElement(By.name("address2")).clear();
+	    driver.findElement(By.name("address2")).sendKeys(userData.userSndAddress);
+	    driver.findElement(By.name("phone2")).clear();
+	    driver.findElement(By.name("phone2")).sendKeys(userData.userSndPhone);
+	    driver.findElement(By.name("submit")).click();
+	}
+
+	protected void movingAddUser() {
+		driver.findElement(By.linkText("add new")).click();
+	}
+
+	protected void movingHomePage() {
+		driver.findElement(By.linkText("home page")).click();
+	}
 
 }
