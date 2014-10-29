@@ -5,23 +5,23 @@ import org.testng.annotations.Test;
 public class GroupCreationTests extends TestBase {
   @Test
   public void testNonEmptyGroupCreation() throws Exception {
-	openMainPage();
-    movingToGroups();
-    initNewGroupCreation();
+	app.navigationHelper.openMainPage();
+    app.navigationHelper.movingToGroups();
+    app.navigationHelper.initNewGroupCreation();
     GroupData groupParams = new GroupData();
     groupParams.groupName = "zoki_group";
     groupParams.groupHeader = "header!";
     groupParams.groupFooter = "footer!";
-	fillGroupInformation(groupParams);
-    movingToGroups();
+	app.fillGroupInformation(this, groupParams);
+    app.navigationHelper.movingToGroups();
   }
 
   @Test
   public void testEmptyGroupCreation() throws Exception {
-	openMainPage();
-    movingToGroups();
-    initNewGroupCreation();
-    fillGroupInformation(new GroupData("", "", ""));
-    movingToGroups();
+	app.navigationHelper.openMainPage();
+    app.navigationHelper.movingToGroups();
+    app.navigationHelper.initNewGroupCreation();
+    app.fillGroupInformation(this, new GroupData("", "", ""));
+    app.navigationHelper.movingToGroups();
   }
 }

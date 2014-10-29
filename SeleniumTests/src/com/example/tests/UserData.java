@@ -1,5 +1,6 @@
 package com.example.tests;
 
+
 public class UserData {
 	public String userName;
 	public String userSndName;

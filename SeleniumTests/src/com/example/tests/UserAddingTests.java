@@ -2,12 +2,12 @@ package com.example.tests;
 
 import org.testng.annotations.Test;
 
-public class UserAdding extends TestBase{
+public class UserAddingTests extends TestBase{
 
   @Test
   public void testNonEmptyUserCreation() throws Exception {
-    openMainPage();
-    movingAddUser();
+    app.navigationHelper.openMainPage();
+    app.navigationHelper.initAddUser();
     UserData userData = new UserData();
     userData.userName = "Ivan";
     userData.userSndName = "Ivanov";
@@ -22,7 +22,16 @@ public class UserAdding extends TestBase{
     userData.userGroupName = "Main group";
     userData.userSndAddress = "Right on the square";
     userData.userSndPhone = "nono phone";
-    fillUserData(userData);    
-    movingHomePage();
+    app.fillUserData(this, userData);    
+    app.navigationHelper.movingHomePage();
+  }
+  
+  @Test
+  public void testEmptyUserCreation() throws Exception {
+	    app.navigationHelper.openMainPage();
+	    app.navigationHelper.initAddUser();
+	    UserData userData = new UserData("","","","","","","","-","-","","","","");
+	    app.fillUserData(this, userData);    
+	    app.navigationHelper.movingHomePage();
   }
 }
