@@ -10,11 +10,8 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
-import com.example.tests.GroupData;
 import com.example.tests.TestBase;
-import com.example.tests.UserData;
 
 public class AppManager {
 	
@@ -22,7 +19,10 @@ public class AppManager {
 	public static String baseUrl;
 	public boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
+	
 	public NavigationHelper navigationHelper;
+	public GroupHelper groupHelper;
+	public UserHelper userHelper;
 
 	public AppManager() {
 	    driver = new FirefoxDriver();
@@ -36,16 +36,6 @@ public class AppManager {
 	    if (!"".equals(verificationErrorString)) {
 	      fail(verificationErrorString);
 	    }
-	}
-
-	public void fillGroupInformation(TestBase testBase, GroupData groupParams) {
-		driver.findElement(By.name("group_name")).clear();
-		driver.findElement(By.name("group_name")).sendKeys(groupParams.groupName);
-		driver.findElement(By.name("group_header")).clear();
-		driver.findElement(By.name("group_header")).sendKeys(groupParams.groupHeader);
-		driver.findElement(By.name("group_footer")).clear();
-		driver.findElement(By.name("group_footer")).sendKeys(groupParams.groupFooter);
-		driver.findElement(By.name("submit")).click();
 	}
 
 	public boolean isElementPresent(By by) {
@@ -80,31 +70,4 @@ public class AppManager {
 	      acceptNextAlert = true;
 	    }
 	  }
-
-	public void fillUserData(TestBase testBase, UserData userData) {
-		driver.findElement(By.name("firstname")).clear();
-	    driver.findElement(By.name("firstname")).sendKeys(userData.userName);
-	    driver.findElement(By.name("lastname")).clear();
-	    driver.findElement(By.name("lastname")).sendKeys(userData.userSndName);
-	    driver.findElement(By.name("address")).clear();
-	    driver.findElement(By.name("address")).sendKeys(userData.userMainAddress);
-	    driver.findElement(By.name("home")).clear();
-	    driver.findElement(By.name("home")).sendKeys(userData.userHomeTelephone);
-	    driver.findElement(By.name("mobile")).clear();
-	    driver.findElement(By.name("mobile")).sendKeys(userData.userMobilePhone);
-	    driver.findElement(By.name("work")).clear();
-	    driver.findElement(By.name("work")).sendKeys(userData.userWorkTelephone);
-	    driver.findElement(By.name("email")).clear();
-	    driver.findElement(By.name("email")).sendKeys(userData.userEmail);
-	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(userData.userBrthDay);
-	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(userData.userBrthMonth);
-	    driver.findElement(By.name("byear")).clear();
-	    driver.findElement(By.name("byear")).sendKeys(userData.userBrthYear);
-	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(userData.userGroupName);
-	    driver.findElement(By.name("address2")).clear();
-	    driver.findElement(By.name("address2")).sendKeys(userData.userSndAddress);
-	    driver.findElement(By.name("phone2")).clear();
-	    driver.findElement(By.name("phone2")).sendKeys(userData.userSndPhone);
-	    driver.findElement(By.name("submit")).click();
-	}
 }

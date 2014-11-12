@@ -7,12 +7,13 @@ public class GroupCreationTests extends TestBase {
   public void testNonEmptyGroupCreation() throws Exception {
 	app.navigationHelper.openMainPage();
     app.navigationHelper.movingToGroups();
-    app.navigationHelper.initNewGroupCreation();
+    app.groupHelper.initNewGroupCreation();
     GroupData groupParams = new GroupData();
     groupParams.groupName = "zoki_group";
     groupParams.groupHeader = "header!";
     groupParams.groupFooter = "footer!";
-	app.fillGroupInformation(this, groupParams);
+	app.groupHelper.fillGroupInformation(app, this, groupParams);
+	app.groupHelper.initGroupSubmit();
     app.navigationHelper.movingToGroups();
   }
 
@@ -20,8 +21,9 @@ public class GroupCreationTests extends TestBase {
   public void testEmptyGroupCreation() throws Exception {
 	app.navigationHelper.openMainPage();
     app.navigationHelper.movingToGroups();
-    app.navigationHelper.initNewGroupCreation();
-    app.fillGroupInformation(this, new GroupData("", "", ""));
+    app.groupHelper.initNewGroupCreation();
+    app.groupHelper.fillGroupInformation(app, this, new GroupData("", "", ""));
+    app.groupHelper.initGroupSubmit();
     app.navigationHelper.movingToGroups();
   }
 }

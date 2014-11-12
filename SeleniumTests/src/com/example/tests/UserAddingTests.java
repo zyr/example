@@ -7,7 +7,7 @@ public class UserAddingTests extends TestBase{
   @Test
   public void testNonEmptyUserCreation() throws Exception {
     app.navigationHelper.openMainPage();
-    app.navigationHelper.initAddUser();
+    app.userHelper.initAddUser();
     UserData userData = new UserData();
     userData.userName = "Ivan";
     userData.userSndName = "Ivanov";
@@ -22,16 +22,18 @@ public class UserAddingTests extends TestBase{
     userData.userGroupName = "Main group";
     userData.userSndAddress = "Right on the square";
     userData.userSndPhone = "nono phone";
-    app.fillUserData(this, userData);    
+    app.userHelper.fillUserData(app, this, userData);
+    app.userHelper.initUserSubmit();
     app.navigationHelper.movingHomePage();
   }
   
   @Test
   public void testEmptyUserCreation() throws Exception {
 	    app.navigationHelper.openMainPage();
-	    app.navigationHelper.initAddUser();
+	    app.userHelper.initAddUser();
 	    UserData userData = new UserData("","","","","","","","-","-","","","","");
-	    app.fillUserData(this, userData);    
+	    app.userHelper.fillUserData(app, this, userData);
+	    app.userHelper.initUserSubmit();
 	    app.navigationHelper.movingHomePage();
   }
 }
