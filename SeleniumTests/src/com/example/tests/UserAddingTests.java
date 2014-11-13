@@ -6,8 +6,8 @@ public class UserAddingTests extends TestBase{
 
   @Test
   public void testNonEmptyUserCreation() throws Exception {
-    app.navigationHelper.openMainPage();
-    app.userHelper.initAddUser();
+    app.getNavigationHelper().openMainPage();
+    app.getUserHelper().initAddUser();
     UserData userData = new UserData();
     userData.userName = "Ivan";
     userData.userSndName = "Ivanov";
@@ -22,18 +22,18 @@ public class UserAddingTests extends TestBase{
     userData.userGroupName = "Main group";
     userData.userSndAddress = "Right on the square";
     userData.userSndPhone = "nono phone";
-    app.userHelper.fillUserData(app, this, userData);
-    app.userHelper.initUserSubmit();
-    app.navigationHelper.movingHomePage();
+    app.getUserHelper().fillUserData(userData);
+    app.getUserHelper().initUserSubmit();
+    app.getNavigationHelper().movingHomePage();
   }
   
   @Test
   public void testEmptyUserCreation() throws Exception {
-	    app.navigationHelper.openMainPage();
-	    app.userHelper.initAddUser();
+	    app.getNavigationHelper().openMainPage();
+	    app.getUserHelper().initAddUser();
 	    UserData userData = new UserData("","","","","","","","-","-","","","","");
-	    app.userHelper.fillUserData(app, this, userData);
-	    app.userHelper.initUserSubmit();
-	    app.navigationHelper.movingHomePage();
+	    app.getUserHelper().fillUserData(userData);
+	    app.getUserHelper().initUserSubmit();
+	    app.getNavigationHelper().movingHomePage();
   }
 }

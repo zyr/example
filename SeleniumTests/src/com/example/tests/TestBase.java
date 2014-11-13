@@ -9,7 +9,7 @@ import com.example.jtestsfw.AppManager;
 
 public class TestBase {
 	
-	protected AppManager app; 
+	protected static AppManager app; 
 
 	@BeforeTest
 	public void setUp() throws Exception {

@@ -9,15 +9,15 @@ public class NavigationHelper extends BaseHelper {
 	}
 
 	public void movingToGroups() {
-	    AppManager.driver.findElement(By.linkText("groups")).click();
+	    driver.findElement(By.linkText("groups")).click();
 	}
 
 	public void openMainPage() {
-	    AppManager.driver.get(AppManager.baseUrl + "/addressbookv4.1.4/");
+		driver.get(manager.baseUrl + "/addressbookv4.1.4/");
 	}
 
 	public void movingHomePage() {
-		AppManager.driver.findElement(By.linkText("home page")).click();
+		driver.findElement(By.linkText("home page")).click();
 	}
 
 }

@@ -7,8 +7,6 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="testEmptyUserCreation"/>
-          <include name="testNonEmptyUserCreation"/>
         </methods>
       </class> <!-- com.example.tests.UserAddingTests -->
       <class name="com.example.tests.GroupCreationTests">
