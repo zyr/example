@@ -14,7 +14,7 @@ public class GroupCreationTests extends TestBase {
     groupParams.groupFooter = "footer!";
 	app.getGroupHelper().fillGroupInformation(groupParams);
 	app.getGroupHelper().initGroupSubmit();
-    app.getNavigationHelper().movingToGroups();
+    app.getGroupHelper().returnToGroupPage();
   }
 
   @Test
@@ -24,6 +24,6 @@ public class GroupCreationTests extends TestBase {
     app.getGroupHelper().initNewGroupCreation();
     app.getGroupHelper().fillGroupInformation(new GroupData("", "", ""));
     app.getGroupHelper().initGroupSubmit();
-    app.getNavigationHelper().movingToGroups();
+    app.getGroupHelper().returnToGroupPage();
   }
 }

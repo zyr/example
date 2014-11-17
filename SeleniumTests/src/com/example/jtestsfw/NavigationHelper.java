@@ -2,14 +2,14 @@ package com.example.jtestsfw;
 
 import org.openqa.selenium.By;
 
-public class NavigationHelper extends BaseHelper {
+public class NavigationHelper extends HelperBase {
 
 	public NavigationHelper(AppManager manager) {
 		super(manager);
 	}
 
 	public void movingToGroups() {
-	    driver.findElement(By.linkText("groups")).click();
+	    click(By.linkText("groups"));
 	}
 
 	public void openMainPage() {
@@ -17,7 +17,7 @@ public class NavigationHelper extends BaseHelper {
 	}
 
 	public void movingHomePage() {
-		driver.findElement(By.linkText("home page")).click();
+		click(By.linkText("home page"));
 	}
 
 }

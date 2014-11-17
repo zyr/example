@@ -1,39 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="9563" started-at="2014-11-13T20:17:46Z" finished-at="2014-11-13T20:17:56Z">
+  <suite name="Default suite" duration-ms="6172" started-at="2014-11-17T20:20:42Z" finished-at="2014-11-17T20:20:48Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="9563" started-at="2014-11-13T20:17:46Z" finished-at="2014-11-13T20:17:56Z">
-      <class name="com.example.tests.GroupCreationTests">
-        <test-method status="PASS" signature="testEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@1d77d9e]" name="testEmptyGroupCreation" duration-ms="984" started-at="2014-11-14T00:17:51Z" finished-at="2014-11-14T00:17:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testEmptyGroupCreation -->
-        <test-method status="PASS" signature="testNonEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@1d77d9e]" name="testNonEmptyGroupCreation" duration-ms="1251" started-at="2014-11-14T00:17:52Z" finished-at="2014-11-14T00:17:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNonEmptyGroupCreation -->
-      </class> <!-- com.example.tests.GroupCreationTests -->
-      <class name="com.example.tests.UserAddingTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.UserAddingTests@16fb9fd]" name="setUp" is-config="true" duration-ms="4735" started-at="2014-11-14T00:17:46Z" finished-at="2014-11-14T00:17:51Z">
+    <test name="Default test" duration-ms="6172" started-at="2014-11-17T20:20:42Z" finished-at="2014-11-17T20:20:48Z">
+      <class name="com.example.tests.UserRemovingTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.UserRemovingTests@1549af8]" name="setUp" is-config="true" duration-ms="4954" started-at="2014-11-18T00:20:42Z" finished-at="2014-11-18T00:20:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testEmptyUserCreation()[pri:0, instance:com.example.tests.UserAddingTests@16fb9fd]" name="testEmptyUserCreation" duration-ms="1015" started-at="2014-11-14T00:17:53Z" finished-at="2014-11-14T00:17:54Z">
+        <test-method status="PASS" signature="removeSomeUser()[pri:0, instance:com.example.tests.UserRemovingTests@1549af8]" name="removeSomeUser" duration-ms="1015" started-at="2014-11-18T00:20:47Z" finished-at="2014-11-18T00:20:48Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testEmptyUserCreation -->
-        <test-method status="PASS" signature="testNonEmptyUserCreation()[pri:0, instance:com.example.tests.UserAddingTests@16fb9fd]" name="testNonEmptyUserCreation" duration-ms="1360" started-at="2014-11-14T00:17:54Z" finished-at="2014-11-14T00:17:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNonEmptyUserCreation -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.UserAddingTests@16fb9fd]" name="tearDown" is-config="true" duration-ms="218" started-at="2014-11-14T00:17:56Z" finished-at="2014-11-14T00:17:56Z">
+        </test-method> <!-- removeSomeUser -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.UserRemovingTests@1549af8]" name="tearDown" is-config="true" duration-ms="187" started-at="2014-11-18T00:20:48Z" finished-at="2014-11-18T00:20:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.example.tests.UserAddingTests -->
+      </class> <!-- com.example.tests.UserRemovingTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

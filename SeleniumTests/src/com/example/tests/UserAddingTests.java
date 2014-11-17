@@ -16,6 +16,7 @@ public class UserAddingTests extends TestBase{
     userData.userMobilePhone = "+79121231234";
     userData.userWorkTelephone = "none";
     userData.userEmail = "vanya@anebaran.da";
+    userData.userSndEmail = "none";
     userData.userBrthDay = "9";
     userData.userBrthMonth = "May";
     userData.userBrthYear = "1945";
@@ -31,7 +32,7 @@ public class UserAddingTests extends TestBase{
   public void testEmptyUserCreation() throws Exception {
 	    app.getNavigationHelper().openMainPage();
 	    app.getUserHelper().initAddUser();
-	    UserData userData = new UserData("","","","","","","","-","-","","","","");
+	    UserData userData = new UserData("","","","","","","","","-","-","","","","");
 	    app.getUserHelper().fillUserData(userData);
 	    app.getUserHelper().initUserSubmit();
 	    app.getNavigationHelper().movingHomePage();
