@@ -1,6 +1,6 @@
 package com.example.tests;
 
-public class GroupData {
+public class GroupData implements Comparable<GroupData> {
 	public String groupName;
 	public String groupHeader;
 	public String groupFooter;
@@ -18,7 +18,8 @@ public class GroupData {
 
 	@Override
 	public String toString() {
-		return "GroupData [groupName=" + groupName + "]";
+		return "GroupData [groupName=" + groupName + ", groupHeader="
+				+ groupHeader + ", groupFooter=" + groupFooter + "]";
 	}
 
 	@Override
@@ -45,5 +46,10 @@ public class GroupData {
 		} else if (!groupName.equals(other.groupName))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(GroupData other) {	
+		return this.groupName.compareToIgnoreCase(other.groupName);
 	}
 }
