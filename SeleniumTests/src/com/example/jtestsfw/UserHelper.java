@@ -1,6 +1,10 @@
 package com.example.jtestsfw;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.example.tests.UserData;
 
@@ -35,7 +39,8 @@ public class UserHelper extends HelperBase {
 	}
 
 	public void selectUser(int index) {
-		click(By.xpath("//tbody/tr[" + ++index + "]/td[7]/a"));
+		//That is on the users enumeration start at 1 than java index must be increased, 1st user has zero java index
+		click(By.xpath("//tr[@name = \"entry\"][" + (index+1) + "]/td[7]/a"));
 	}
 
 	public void submitUserModification() {
@@ -45,6 +50,18 @@ public class UserHelper extends HelperBase {
 	public void removeUser(int index) {
 		selectUser(index);		
 		click(By.xpath("//input[@value=\"Delete\"]"));
+	}
+
+	public List<UserData> getUsers() {
+		List<UserData> users = new ArrayList<UserData>();
+		List<WebElement> trSndNames = driver.findElements(By.xpath("//tr[@name = \"entry\"]/td[2]"));
+		for (WebElement trName : trSndNames) {
+			UserData user = new UserData();
+			String userSndName = trName.getText();
+			user.userSndName = userSndName;
+			users.add(user);
+		}
+		return users;
 	}
 
 }

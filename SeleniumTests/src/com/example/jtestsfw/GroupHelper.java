@@ -47,7 +47,7 @@ public class GroupHelper extends HelperBase {
 	}
 
 	private void selectGroupByIndex(int index) {
-		//That is on the for enumeration start at 1 than java index must be increased
+		//That is on the groups enumeration start at 1 than java index must be increased, 1st group has zero java index
 		click(By.xpath("//input[@name=\"selected[]\"][" + (index + 1) + "]"));
 	}
 

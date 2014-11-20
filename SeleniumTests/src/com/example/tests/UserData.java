@@ -1,7 +1,7 @@
 package com.example.tests;
 
 
-public class UserData {
+public class UserData implements Comparable<UserData>{
 	public String userName;
 	public String userSndName;
 	public String userMainAddress;
@@ -38,5 +38,50 @@ public class UserData {
 	}
 	
 	public UserData() {
+	}
+
+	@Override
+	public String toString() {
+		return "UserData [userName=" + userName + ", userSndName="
+				+ userSndName + ", userMainAddress=" + userMainAddress
+				+ ", userHomeTelephone=" + userHomeTelephone
+				+ ", userMobilePhone=" + userMobilePhone
+				+ ", userWorkTelephone=" + userWorkTelephone + ", userEmail="
+				+ userEmail + ", userSndEmail=" + userSndEmail
+				+ ", userBrthDay=" + userBrthDay + ", userBrthMonth="
+				+ userBrthMonth + ", userBrthYear=" + userBrthYear
+				+ ", userGroupName=" + userGroupName + ", userSndAddress="
+				+ userSndAddress + ", userSndPhone=" + userSndPhone + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((userSndName == null) ? 0 : userSndName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserData other = (UserData) obj;
+		if (userSndName == null) {
+			if (other.userSndName != null)
+				return false;
+		} else if (!userSndName.equals(other.userSndName))
+			return false;
+		return true;
+	}
+
+	@Override
+	public int compareTo(UserData other) {
+		return this.userSndName.compareToIgnoreCase(other.userSndName);
 	}
 }

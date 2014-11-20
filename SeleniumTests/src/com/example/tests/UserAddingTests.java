@@ -1,40 +1,33 @@
 package com.example.tests;
 
+import static org.testng.Assert.assertEquals;
+
+import java.util.Collections;
+import java.util.List;
+
 import org.testng.annotations.Test;
 
 public class UserAddingTests extends TestBase{
 
-  @Test
-  public void testNonEmptyUserCreation() throws Exception {
-    app.getNavigationHelper().openMainPage();
-    app.getUserHelper().initAddUser();
-    UserData userData = new UserData();
-    userData.userName = "Ivan";
-    userData.userSndName = "Ivanov";
-    userData.userMainAddress = "1, Red squre, Moscow, Russia";
-    userData.userHomeTelephone = "12345";
-    userData.userMobilePhone = "+79121231234";
-    userData.userWorkTelephone = "none";
-    userData.userEmail = "vanya@anebaran.da";
-    userData.userSndEmail = "none";
-    userData.userBrthDay = "9";
-    userData.userBrthMonth = "May";
-    userData.userBrthYear = "1945";
-    userData.userGroupName = "Main group";
-    userData.userSndAddress = "Right on the square";
-    userData.userSndPhone = "nono phone";
-    app.getUserHelper().fillUserData(userData);
-    app.getUserHelper().initUserSubmit();
-    app.getNavigationHelper().movingHomePage();
-  }
-  
-  @Test
-  public void testEmptyUserCreation() throws Exception {
+	@Test(dataProvider = "randomValidUserGenerator")
+	public void testUserAddingWithValidData(UserData userData) throws Exception {
 	    app.getNavigationHelper().openMainPage();
+	    
+	    // save old state
+	    List<UserData> oldList = app.getUserHelper().getUsers();
+	    
+	    //actions
 	    app.getUserHelper().initAddUser();
-	    UserData userData = new UserData("","","","","","","","","-","-","","","","");
 	    app.getUserHelper().fillUserData(userData);
 	    app.getUserHelper().initUserSubmit();
 	    app.getNavigationHelper().movingHomePage();
-  }
+	    
+	    // save new state
+	    List<UserData> newList = app.getUserHelper().getUsers();
+	    
+	    //compare states
+	    oldList.add(userData);
+	    Collections.sort(oldList);
+	    assertEquals(newList, oldList);
+	}
 }

@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 public class GroupRemovingTests extends TestBase {
 
 	@Test
-	public void removeSomeGroup() {
-		app.getNavigationHelper().openMainPage();
+	public void removeSomeGroup() {	    
+	    app.getNavigationHelper().openMainPage();
 		app.getNavigationHelper().movingToGroups();
 	    
 	    // save old state
@@ -20,9 +20,9 @@ public class GroupRemovingTests extends TestBase {
 
 	    Random rn = new Random();
 	    int index = rn.nextInt(oldList.size() - 1);
-	    
+
 	    //actions
-	    //Removing [index + 1] group
+	    //Remove [index + 1] group
 		app.getGroupHelper().removeGroup(index);
 		app.getGroupHelper().returnToGroupPage();
    

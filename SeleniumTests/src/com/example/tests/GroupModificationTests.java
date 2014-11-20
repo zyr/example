@@ -22,7 +22,7 @@ public class GroupModificationTests extends TestBase{
 	    int index = rn.nextInt(oldList.size() - 1);
 	    
 	    //actions
-	    //Initiation of the 1st group modification
+	    //Initiation of the [index + 1] group modification
 		app.getGroupHelper().initGroupModification(index);
 		app.getGroupHelper().fillGroupInformation(groupData);
 		app.getGroupHelper().submitGroupModification();

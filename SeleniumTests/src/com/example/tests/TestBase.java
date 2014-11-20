@@ -40,6 +40,28 @@ public class TestBase {
 		return list.iterator();	
 	}
 	
+	@DataProvider
+	public Iterator<Object[]> randomValidUserGenerator() {
+		List<Object[]> list = new ArrayList<Object[]>();
+	    UserData user = new UserData();
+	    user.userName = "Ivan";
+	    user.userSndName = "Ivanov";
+	    user.userMainAddress = "1, Red squre, Moscow, Russia";
+	    user.userHomeTelephone = "12345";
+	    user.userMobilePhone = "+79121231234";
+	    user.userWorkTelephone = "none";
+	    user.userEmail = "vanya@anebaran.da";
+	    user.userSndEmail = "none";
+	    user.userBrthDay = "9";
+	    user.userBrthMonth = "May";
+	    user.userBrthYear = "1945";
+	    user.userGroupName = "Main group";
+	    user.userSndAddress = "Right on the square";
+	    user.userSndPhone = "nono phone";
+	    list.add(new Object[]{user});
+		return list.iterator();
+	}
+	
 	public String generateRandomStraing() {
 		Random rn = new Random();
 		if (rn.nextInt(3) == 0){
