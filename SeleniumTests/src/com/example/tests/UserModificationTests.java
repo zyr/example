@@ -25,6 +25,9 @@ public class UserModificationTests extends TestBase{
 		app.getUserHelper().selectUser(index);
 		UserData userData = new UserData();
 		userData.userSndName = "2nd name mod rand";
+		if (userData.userGroupName != null) {
+			userData.userName = "rand grp";
+		}
 		app.getUserHelper().fillUserData(userData);
 		app.getUserHelper().submitUserModification();
 		app.getNavigationHelper().movingHomePage();		
