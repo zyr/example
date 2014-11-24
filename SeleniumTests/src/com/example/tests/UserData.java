@@ -43,15 +43,10 @@ public class UserData implements Comparable<UserData>{
 	@Override
 	public String toString() {
 		return "UserData [userName=" + userName + ", userSndName="
-				+ userSndName + ", userMainAddress=" + userMainAddress
-				+ ", userHomeTelephone=" + userHomeTelephone
-				+ ", userMobilePhone=" + userMobilePhone
-				+ ", userWorkTelephone=" + userWorkTelephone + ", userEmail="
-				+ userEmail + ", userSndEmail=" + userSndEmail
-				+ ", userBrthDay=" + userBrthDay + ", userBrthMonth="
-				+ userBrthMonth + ", userBrthYear=" + userBrthYear
-				+ ", userGroupName=" + userGroupName + ", userSndAddress="
-				+ userSndAddress + ", userSndPhone=" + userSndPhone + "]";
+				+ userSndName + ", userEmail=" + userEmail + ", userBrthDay="
+				+ userBrthDay + ", userBrthMonth=" + userBrthMonth
+				+ ", userBrthYear=" + userBrthYear + ", userGroupName="
+				+ userGroupName + "]";
 	}
 
 	@Override

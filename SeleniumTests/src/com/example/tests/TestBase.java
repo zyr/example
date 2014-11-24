@@ -32,9 +32,9 @@ public class TestBase {
 		List<Object[]> list = new ArrayList<Object[]>();
 		for (int i = 0; i < 5; i++) {
 			GroupData group = new GroupData();
-			group.groupName = generateRandomStraing();
-			group.groupHeader = generateRandomStraing();
-			group.groupFooter = generateRandomStraing();
+			group.groupName = generateRandomString("name");
+			group.groupHeader = generateRandomString("header");
+			group.groupFooter = generateRandomString("footer");
 			list.add(new Object[]{group});
 		}
 		return list.iterator();	
@@ -44,30 +44,45 @@ public class TestBase {
 	public Iterator<Object[]> randomValidUserGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();
 	    UserData user = new UserData();
-	    user.userName = "Ivan";
-	    user.userSndName = "Ivanov";
-	    user.userMainAddress = "1, Red squre, Moscow, Russia";
-	    user.userHomeTelephone = "12345";
-	    user.userMobilePhone = "+79121231234";
-	    user.userWorkTelephone = "none";
-	    user.userEmail = "vanya@anebaran.da";
-	    user.userSndEmail = "none";
-	    user.userBrthDay = "9";
-	    user.userBrthMonth = "May";
-	    user.userBrthYear = "1945";
+	    user.userName = generateRandomString("Ivan");
+	    user.userSndName = generateRandomString("Ivanov");
+	    user.userMainAddress = generateRandomString("1, Red squre, Moscow, Russia");
+	    user.userHomeTelephone = generateRandomString("");
+	    user.userMobilePhone = generateRandomString("");
+	    user.userWorkTelephone = generateRandomString("");
+	    user.userEmail = generateRandomString("vanya@anebaran.da");
+	    user.userSndEmail = generateRandomString("none");
+	    //user.userBrthDay = "9";
+	    //user.userBrthMonth = "May";
+	    user.userBrthYear = generateRandomString("");
 	    user.userGroupName = "Main group";
-	    user.userSndAddress = "Right on the square";
-	    user.userSndPhone = "nono phone";
+	    user.userSndAddress = generateRandomString("Right on the square");
+	    user.userSndPhone = generateRandomString("");
 	    list.add(new Object[]{user});
 		return list.iterator();
 	}
 	
-	public String generateRandomStraing() {
+	protected String generateRandomString(String stBase) {
 		Random rn = new Random();
-		if (rn.nextInt(3) == 0){
-			return "";				
-		} else {
-			return "test" + rn.nextInt();
-		}	
+		int randFactor = rn.nextInt(6);
+		switch (randFactor) {
+		case 3: case 5:
+			return stBase.toUpperCase() + Math.abs(rn.nextInt());
+		case 0: case 2:
+			return stBase.toLowerCase() + Math.abs(rn.nextInt());
+		}
+		return "";
 	}
+	
+	protected String generateRandomBrthDay() {
+		List<String> bDays = app.getUserHelper().getWebElementsTextByXpath("//form[@action=\"edit.php\"]/select[@name=\"bday\"]/option");
+		Random rn = new Random();
+		return bDays.get(rn.nextInt(bDays.size()));
+	}
+	
+	protected String generateRandomBrthMonth() {
+		List<String> bMonthes = app.getUserHelper().getWebElementsTextByXpath("//form[@action=\"edit.php\"]/select[@name=\"bmonth\"]/option");
+		Random rn = new Random();
+		return bMonthes.get(rn.nextInt(bMonthes.size()));
+	} 
 }

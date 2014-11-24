@@ -13,7 +13,7 @@ public class UserHelper extends HelperBase {
 	public UserHelper(AppManager manager) {
 		super(manager);
 	}
-
+	
 	public void initAddUser() {
 		click(By.linkText("add new"));
 	}
@@ -34,7 +34,7 @@ public class UserHelper extends HelperBase {
 		type(By.name("phone2"), userData.userSndPhone);
 	}
 
-	public void initUserSubmit() {
+	public void submitUserAdding() {
 		click(By.name("submit"));
 	}
 
@@ -64,4 +64,13 @@ public class UserHelper extends HelperBase {
 		return users;
 	}
 
+	public List<String> getWebElementsTextByXpath(String xpath) {
+		List<String> rArray = new ArrayList<String>();
+		List<WebElement> webElems = driver.findElements(By.xpath(xpath));
+		for (WebElement webElem : webElems) {
+			String webElemText = webElem.getText();
+			rArray.add(webElemText);
+		}
+		return rArray;
+	}
 }

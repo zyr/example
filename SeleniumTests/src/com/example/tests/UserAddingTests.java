@@ -18,8 +18,10 @@ public class UserAddingTests extends TestBase{
 	    
 	    //actions
 	    app.getUserHelper().initAddUser();
+	    userData.userBrthDay = generateRandomBrthDay();
+	    userData.userBrthMonth = generateRandomBrthMonth();
 	    app.getUserHelper().fillUserData(userData);
-	    app.getUserHelper().initUserSubmit();
+	    app.getUserHelper().submitUserAdding();
 	    app.getNavigationHelper().movingHomePage();
 	    
 	    // save new state
