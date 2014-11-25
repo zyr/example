@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 
 public class UserModificationTests extends TestBase{
 	
-	@Test
-	public void modifySomeUser(){
+	@Test (dataProvider = "randomValidUserGenerator")
+	public void modifySomeUser(UserData userData){
 		app.getNavigationHelper().openMainPage();
 	    
 	    // save old state
@@ -23,12 +23,9 @@ public class UserModificationTests extends TestBase{
 	    //actions
 		//Initiation of the [index + 1] user modification
 		app.getUserHelper().selectUser(index);
-		UserData userData = new UserData();
-		userData.userSndName = "2nd name mod rand";
-		if (userData.userGroupName != null) {
-			userData.userName = "rand grp";
-		}
-		app.getUserHelper().fillUserData(userData);
+	    userData.userBrthDay = generateRandomElementFromSelector("bDay");
+	    userData.userBrthMonth = generateRandomElementFromSelector("bMonth");
+	    app.getUserHelper().fillUserData(userData);
 		app.getUserHelper().submitUserModification();
 		app.getNavigationHelper().movingHomePage();		
 	    

@@ -18,8 +18,9 @@ public class UserAddingTests extends TestBase{
 	    
 	    //actions
 	    app.getUserHelper().initAddUser();
-	    userData.userBrthDay = generateRandomBrthDay();
-	    userData.userBrthMonth = generateRandomBrthMonth();
+	    userData.userBrthDay = generateRandomElementFromSelector("bDay");
+	    userData.userBrthMonth = generateRandomElementFromSelector("bMonth");
+	    userData.userGroupName = generateRandomElementFromSelector("group");
 	    app.getUserHelper().fillUserData(userData);
 	    app.getUserHelper().submitUserAdding();
 	    app.getNavigationHelper().movingHomePage();

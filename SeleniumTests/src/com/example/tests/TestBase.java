@@ -55,7 +55,7 @@ public class TestBase {
 	    //user.userBrthDay = "9";
 	    //user.userBrthMonth = "May";
 	    user.userBrthYear = generateRandomString("");
-	    user.userGroupName = "Main group";
+	    //user.userGroupName = "Main group";
 	    user.userSndAddress = generateRandomString("Right on the square");
 	    user.userSndPhone = generateRandomString("");
 	    list.add(new Object[]{user});
@@ -74,15 +74,9 @@ public class TestBase {
 		return "";
 	}
 	
-	protected String generateRandomBrthDay() {
-		List<String> bDays = app.getUserHelper().getWebElementsTextByXpath("//form[@action=\"edit.php\"]/select[@name=\"bday\"]/option");
+	protected String generateRandomElementFromSelector(String element) {
+		List<String> webElementsNames = app.getUserHelper().getWebElementsTextList(element);
 		Random rn = new Random();
-		return bDays.get(rn.nextInt(bDays.size()));
-	}
-	
-	protected String generateRandomBrthMonth() {
-		List<String> bMonthes = app.getUserHelper().getWebElementsTextByXpath("//form[@action=\"edit.php\"]/select[@name=\"bmonth\"]/option");
-		Random rn = new Random();
-		return bMonthes.get(rn.nextInt(bMonthes.size()));
+		return webElementsNames.get(rn.nextInt(webElementsNames.size()));
 	} 
 }

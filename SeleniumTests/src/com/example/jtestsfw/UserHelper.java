@@ -10,6 +10,10 @@ import com.example.tests.UserData;
 
 public class UserHelper extends HelperBase {
 
+	private String bDayXpath = "//form[@action=\"edit.php\"]/select[@name=\"bday\"]/option";
+	private String bMonthXpath = "//form[@action=\"edit.php\"]/select[@name=\"bmonth\"]/option";
+	private String groupXpath = "//form[@action=\"edit.php\"]/select[@name=\"new_group\"]/option";
+	
 	public UserHelper(AppManager manager) {
 		super(manager);
 	}
@@ -29,7 +33,7 @@ public class UserHelper extends HelperBase {
 	    selectByText(By.name("bday"), userData.userBrthDay);
 	    selectByText(By.name("bmonth"), userData.userBrthMonth);
 		type(By.name("byear"), userData.userBrthYear);
-		//selectByText(By.name("new_group"), userData.userGroupName);
+		selectByText(By.name("new_group"), userData.userGroupName);
 		type(By.name("address2"), userData.userSndAddress);
 		type(By.name("phone2"), userData.userSndPhone);
 	}
@@ -64,7 +68,19 @@ public class UserHelper extends HelperBase {
 		return users;
 	}
 
-	public List<String> getWebElementsTextByXpath(String xpath) {
+	public List<String> getWebElementsTextList(String element) {
+		String xpath = "";
+		switch (element) {
+		case "bDay":
+			xpath = bDayXpath;
+			break;
+		case "bMonth":
+			xpath = bMonthXpath;
+			break;
+		case "group":
+			xpath = groupXpath;
+			break;
+		}
 		List<String> rArray = new ArrayList<String>();
 		List<WebElement> webElems = driver.findElements(By.xpath(xpath));
 		for (WebElement webElem : webElems) {

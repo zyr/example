@@ -2,31 +2,31 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7156" started-at="2014-11-24T19:56:47Z" finished-at="2014-11-24T19:56:54Z">
+  <suite name="Default suite" duration-ms="7063" started-at="2014-11-25T18:12:03Z" finished-at="2014-11-25T18:12:10Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7156" started-at="2014-11-24T19:56:47Z" finished-at="2014-11-24T19:56:54Z">
-      <class name="com.example.tests.UserAddingTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.UserAddingTests@48268a]" name="setUp" is-config="true" duration-ms="4406" started-at="2014-11-24T23:56:47Z" finished-at="2014-11-24T23:56:52Z">
+    <test name="Default test" duration-ms="7063" started-at="2014-11-25T18:12:03Z" finished-at="2014-11-25T18:12:10Z">
+      <class name="com.example.tests.UserModificationTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.UserModificationTests@b90ff7]" name="setUp" is-config="true" duration-ms="4422" started-at="2014-11-25T22:12:03Z" finished-at="2014-11-25T22:12:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testUserAddingWithValidData(com.example.tests.UserData)[pri:0, instance:com.example.tests.UserAddingTests@48268a]" name="testUserAddingWithValidData" duration-ms="2547" started-at="2014-11-24T23:56:52Z" data-provider="randomValidUserGenerator" finished-at="2014-11-24T23:56:54Z">
+        <test-method status="PASS" signature="modifySomeUser(com.example.tests.UserData)[pri:0, instance:com.example.tests.UserModificationTests@b90ff7]" name="modifySomeUser" duration-ms="2375" started-at="2014-11-25T22:12:07Z" data-provider="randomValidUserGenerator" finished-at="2014-11-25T22:12:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[UserData [userName=, userSndName=, userEmail=, userBrthDay=28, userBrthMonth=August, userBrthYear=1425497147, userGroupName=Main group]]]>
+                <![CDATA[UserData [userName=IVAN2133872795, userSndName=ivanov970448730, userBrthDay=18, userBrthMonth=May, userBrthYear=, userGroupName=null]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testUserAddingWithValidData -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.UserAddingTests@48268a]" name="tearDown" is-config="true" duration-ms="203" started-at="2014-11-24T23:56:54Z" finished-at="2014-11-24T23:56:54Z">
+        </test-method> <!-- modifySomeUser -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.UserModificationTests@b90ff7]" name="tearDown" is-config="true" duration-ms="266" started-at="2014-11-25T22:12:10Z" finished-at="2014-11-25T22:12:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.example.tests.UserAddingTests -->
+      </class> <!-- com.example.tests.UserModificationTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
