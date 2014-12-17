@@ -1,12 +1,14 @@
 package com.example.tests;
 
 import static org.testng.Assert.assertEquals;
+import static com.example.jtestsfw.UserHelper.MODIFICATION;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 import org.testng.annotations.Test;
+
 
 public class UserModificationTests extends TestBase{
 	
@@ -25,7 +27,7 @@ public class UserModificationTests extends TestBase{
 		app.getUserHelper().selectUser(index);
 	    userData.userBrthDay = generateRandomElementFromSelector("bDay");
 	    userData.userBrthMonth = generateRandomElementFromSelector("bMonth");
-	    app.getUserHelper().fillUserData(userData);
+	    app.getUserHelper().fillUserData(userData, MODIFICATION);
 		app.getUserHelper().submitUserModification();
 		app.getNavigationHelper().movingHomePage();		
 	    

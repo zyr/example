@@ -1,6 +1,7 @@
 package com.example.tests;
 
 import static org.testng.Assert.assertEquals;
+import static com.example.jtestsfw.UserHelper.ADDING;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +22,7 @@ public class UserAddingTests extends TestBase{
 	    userData.userBrthDay = generateRandomElementFromSelector("bDay");
 	    userData.userBrthMonth = generateRandomElementFromSelector("bMonth");
 	    userData.userGroupName = generateRandomElementFromSelector("group");
-	    app.getUserHelper().fillUserData(userData);
+	    app.getUserHelper().fillUserData(userData, ADDING);
 	    app.getUserHelper().submitUserAdding();
 	    app.getNavigationHelper().movingHomePage();
 	    

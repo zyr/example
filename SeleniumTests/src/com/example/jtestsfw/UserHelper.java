@@ -9,6 +9,9 @@ import org.openqa.selenium.WebElement;
 import com.example.tests.UserData;
 
 public class UserHelper extends HelperBase {
+	
+	public static boolean ADDING = true;
+	public static boolean MODIFICATION = false;
 
 	private String bDayXpath = "//form[@action=\"edit.php\"]/select[@name=\"bday\"]/option";
 	private String bMonthXpath = "//form[@action=\"edit.php\"]/select[@name=\"bmonth\"]/option";
@@ -22,7 +25,7 @@ public class UserHelper extends HelperBase {
 		click(By.linkText("add new"));
 	}
 
-	public void fillUserData(UserData userData) {
+	public void fillUserData(UserData userData, boolean formType) {
 		type(By.name("firstname"), userData.userName);
 		type(By.name("lastname"), userData.userSndName);
 		type(By.name("address"), userData.userMainAddress);
@@ -33,7 +36,13 @@ public class UserHelper extends HelperBase {
 	    selectByText(By.name("bday"), userData.userBrthDay);
 	    selectByText(By.name("bmonth"), userData.userBrthMonth);
 		type(By.name("byear"), userData.userBrthYear);
-		selectByText(By.name("new_group"), userData.userGroupName);
+		if (formType == ADDING){
+			selectByText(By.name("new_group"), userData.userGroupName);
+		}else if (formType == MODIFICATION){
+			if (driver.findElements(By.name("new_group")).size() != 0){
+				throw new Error("Group selector contains on the group modification form.");
+			}
+		}
 		type(By.name("address2"), userData.userSndAddress);
 		type(By.name("phone2"), userData.userSndPhone);
 	}

@@ -23,10 +23,11 @@ public class GroupModificationTests extends TestBase{
 	    
 	    //actions
 	    //Initiation of the [index + 1] group modification
-		app.getGroupHelper().initGroupModification(index);
-		app.getGroupHelper().fillGroupInformation(groupData);
-		app.getGroupHelper().submitGroupModification();
-		app.getGroupHelper().returnToGroupPage();
+		app.getGroupHelper()
+			.initGroupModification(index)
+			.fillGroupInformation(groupData)
+			.submitGroupModification()
+			.returnToGroupPage();
 	    
 	    // save new state
 	    List<GroupData> newList = app.getGroupHelper().getGroups();

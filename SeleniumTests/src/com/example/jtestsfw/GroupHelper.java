@@ -14,51 +14,58 @@ public class GroupHelper extends HelperBase {
 		super(manager);
 	}
 
-	public void initNewGroupCreation() {
+	public GroupHelper initNewGroupCreation() {
 		click(By.name("new"));
+		return this;
 	}
 
-	public void fillGroupInformation(GroupData groupParams) {
-		type(By.name("group_name"), groupParams.groupName);
-		type(By.name("group_header"), groupParams.groupHeader);
-		type(By.name("group_footer"), groupParams.groupFooter);
+	public GroupHelper fillGroupInformation(GroupData groupParams) {
+		type(By.name("group_name"), groupParams.getGroupName());
+		type(By.name("group_header"), groupParams.getGroupHeader());
+		type(By.name("group_footer"), groupParams.getGroupFooter());
+		return this;
 	}
 
-	public void initGroupSubmit() {
+	public GroupHelper initGroupSubmit() {
 		click(By.name("submit"));
+		return this;
 	}
 	
-	public void returnToGroupPage() {
+	public GroupHelper returnToGroupPage() {
 		click(By.linkText("group page"));
+		return this;
 	}
 
-	public void removeGroup(int index) {
+	public GroupHelper removeGroup(int index) {
 		selectGroupByIndex(index);
 		click(By.name("delete"));
+		return this;
 	}
 
-	public void initGroupModification(int index) {
+	public GroupHelper initGroupModification(int index) {
 		selectGroupByIndex(index);
 		click(By.name("edit"));
+		return this;
 	}
 
-	public void submitGroupModification() {
+	public GroupHelper submitGroupModification() {
 		click(By.name("update"));
+		return this;
 	}
 
-	private void selectGroupByIndex(int index) {
+	private GroupHelper selectGroupByIndex(int index) {
 		//That is on the groups enumeration start at 1 than java index must be increased, 1st group has zero java index
 		click(By.xpath("//input[@name=\"selected[]\"][" + (index + 1) + "]"));
+		return this;
 	}
 
 	public List<GroupData> getGroups() {
 		List<GroupData> groups = new ArrayList<GroupData>();
 		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
 		for (WebElement checkbox : checkboxes) {
-			GroupData group = new GroupData();
 			String groupTitle = checkbox.getAttribute("title");
-			group.groupName = groupTitle.substring("Select (".length(), groupTitle.length() - ")".length());
-			groups.add(group);
+			String groupName = groupTitle.substring("Select (".length(), groupTitle.length() - ")".length());
+			groups.add(new GroupData().withName(groupName));
 		}
 		return groups;
 	}

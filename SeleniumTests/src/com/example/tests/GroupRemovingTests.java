@@ -23,8 +23,9 @@ public class GroupRemovingTests extends TestBase {
 
 	    //actions
 	    //Remove [index + 1] group
-		app.getGroupHelper().removeGroup(index);
-		app.getGroupHelper().returnToGroupPage();
+		app.getGroupHelper()
+			.removeGroup(index)
+			.returnToGroupPage();
    
 	    // save new state
 	    List<GroupData> newList = app.getGroupHelper().getGroups();
